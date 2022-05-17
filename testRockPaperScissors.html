@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Rock Paper Scissors</h1>
+
+    <button id="Rock" class="button">Rock</button>
+    <button id="Paper" class="button">Paper</button>
+    <button id="Scissors" class="button">Scissors</button>
+
+    <br>
+
+    <span id="choiceBox">yourChoice</span>
+    <span id="compChoiceBox">computerChoice</span>
+    
+<script>
+let gameArray = [Rock, Paper, Scissors]
+
+allButtons = document.querySelector(".button")
+allButtons.addEventListener("click", choice)
+
+function choice() {
+    choiceBox = document.querySelector("#choiceBox")
+    choiceBox.innerHTML = "Rock"
+}
+    
+    
+</script>
+<!--  let response1 = prompt("Player 1 choice?");
+ console.log(response1)
+ let response2 = prompt("Player 2 choice?");
+ console.log(response2)
+ if (response1===response2)
+ console.log("Draw")
+ // rock vs paper and scissors
+ if (response1==="rock" && response2==="paper") {
+ console.log("You Lose") };
+ if (response1==="rock" && response2==="scissors") {
+ console.log("You Win!") }; -->
+</body>
+</html>
