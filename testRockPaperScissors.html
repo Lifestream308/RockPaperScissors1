@@ -16,16 +16,24 @@
     <br>
 
     <h2>Your Choice: </h2>
-    <span id="choiceBox">yourChoice</span>
+    <span id="choiceBox">Rock/Paper/Scissors</span>
     <h2>Computer's Choice: </h2>
-    <span id="compChoiceBox">computerChoice</span>
+    <span id="compChoiceBox">Rock/Paper/Scissors</span>
+
+    <hr>
+    
+    <h2 id="resultBox">WHO WILL WIN?</h2>
+    <span>Wins: </span>
+    <span id="winBox">0</span>
+
+    <br>
+    
+    <span>Losses: </span>
+    <span id="loseBox">0</span>
     
 <script>
-let gameArray = ["Rock", "Paper", "Scissors"]
-
 const allButtons = document.querySelectorAll("button")
-console.log(allButtons)
-  for (let i=0; i<allButtons.length; i++) {
+  for (let i = 0; i < allButtons.length; i++) {
      allButtons[i].addEventListener("click", choice)
 }
 
@@ -34,7 +42,10 @@ function choice(e) {
     choiceBox.innerHTML = e.target.id
     computerChoice()
     result()
+    tally()
 }
+
+let gameArray = ["Rock", "Paper", "Scissors"]
 
 function computerChoice() {
     var random = Math.floor(Math.random()*gameArray.length)
@@ -43,15 +54,54 @@ function computerChoice() {
 }
 
 function result() {
-
+    var resultBox = document.querySelector("#resultBox")
+    var resultAnswer = choiceBox.innerHTML + compChoiceBox.innerHTML
+    switch (resultAnswer) {
+        case "RockScissors": 
+            resultBox.innerHTML = "You Win!"
+            break;
+        case "PaperRock": 
+            resultBox.innerHTML = "You Win!"
+            break;
+        case "ScissorsPaper": 
+            resultBox.innerHTML = "You Win!"
+            break;
+        case "RockRock": 
+            resultBox.innerHTML = "It's a Draw!"
+            break;
+        case "PaperPaper": 
+            resultBox.innerHTML = "It's a Draw!"
+            break;
+        case "ScissorsScissors": 
+            resultBox.innerHTML = "It's a Draw!"
+            break;
+        case "RockPaper": 
+            resultBox.innerHTML = "You Lose!"
+            break;
+        case "PaperScissors": 
+            resultBox.innerHTML = "You Lose!"
+            break;
+        case "ScissorsRock": 
+            resultBox.innerHTML = "You Lose!"
+            break;
+    }
 }
-    
-    // var winCounter = 0
-    // var loseCounter = 0
-    // if result == "you win"
-    // winCounter++
-    // if result == "you lose"
-    // loseCounter++
+
+var winCounter = 0
+var loseCounter = 0
+
+function tally() {
+    if (resultBox.innerHTML == "You Win!") {
+        winCounter++
+    }
+    if (resultBox.innerHTML == "You Lose!") {
+        loseCounter++
+    }
+    winBox = document.querySelector("#winBox")
+    loseBox = document.querySelector("#loseBox")
+    winBox.innerHTML = winCounter
+    loseBox.innerHTML = loseCounter
+}
 </script>
 </body>
 </html>
