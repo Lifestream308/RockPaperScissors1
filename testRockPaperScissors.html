@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-
     <h1>Rock Paper Scissors</h1>
 
     <button id="Rock" class="button">Rock</button>
@@ -16,42 +15,43 @@
 
     <br>
 
+    <h2>Your Choice: </h2>
     <span id="choiceBox">yourChoice</span>
+    <h2>Computer's Choice: </h2>
     <span id="compChoiceBox">computerChoice</span>
     
 <script>
-let gameArray = [Rock, Paper, Scissors]
+let gameArray = ["Rock", "Paper", "Scissors"]
 
-// const allButtons = document.getElementsByClassName("button")
 const allButtons = document.querySelectorAll("button")
 console.log(allButtons)
   for (let i=0; i<allButtons.length; i++) {
      allButtons[i].addEventListener("click", choice)
 }
-// allButtons.addEventListener("click", choice)
 
 function choice(e) {
     choiceBox = document.querySelector("#choiceBox")
     choiceBox.innerHTML = e.target.id
     computerChoice()
+    result()
 }
 
 function computerChoice() {
-    console.log(Math.floor(Math.random()*gameArray.length))
+    var random = Math.floor(Math.random()*gameArray.length)
+    compChoiceBox = document.querySelector("#compChoiceBox")
+    compChoiceBox.innerHTML = gameArray[random]
+}
+
+function result() {
+
 }
     
-    
+    // var winCounter = 0
+    // var loseCounter = 0
+    // if result == "you win"
+    // winCounter++
+    // if result == "you lose"
+    // loseCounter++
 </script>
-<!--  let response1 = prompt("Player 1 choice?");
- console.log(response1)
- let response2 = prompt("Player 2 choice?");
- console.log(response2)
- if (response1===response2)
- console.log("Draw")
- // rock vs paper and scissors
- if (response1==="rock" && response2==="paper") {
- console.log("You Lose") };
- if (response1==="rock" && response2==="scissors") {
- console.log("You Win!") }; -->
 </body>
 </html>
