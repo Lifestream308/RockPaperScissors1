@@ -22,12 +22,22 @@
 <script>
 let gameArray = [Rock, Paper, Scissors]
 
-allButtons = document.querySelector(".button")
-allButtons.addEventListener("click", choice)
+// const allButtons = document.getElementsByClassName("button")
+const allButtons = document.querySelectorAll("button")
+console.log(allButtons)
+  for (let i=0; i<allButtons.length; i++) {
+     allButtons[i].addEventListener("click", choice)
+}
+// allButtons.addEventListener("click", choice)
 
-function choice() {
+function choice(e) {
     choiceBox = document.querySelector("#choiceBox")
-    choiceBox.innerHTML = "Rock"
+    choiceBox.innerHTML = e.target.id
+    computerChoice()
+}
+
+function computerChoice() {
+    console.log(Math.floor(Math.random()*gameArray.length))
 }
     
     
